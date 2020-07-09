@@ -2,6 +2,7 @@ import cucumber.api.PendingException;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
@@ -9,6 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.awt.*;
 import java.awt.event.InputEvent;
+import java.lang.ref.SoftReference;
 
 public class bottest {
 
@@ -23,15 +25,23 @@ public class bottest {
         driver.get("https://twitter.com/login");
     }
 
-    @Dado("^e coloca o usuario \"([^\"]*)\"$")
+    @Dado("^e coloca o usuario (.*)")
     public void eColocaOUsuario(String arg1) throws Throwable {
         driver.findElement(By.xpath("/html/body/div/div/div/div[2]/main/div/div/form/div/div[1]/label/div/div[2]/div/input")).sendKeys(arg1);
     }
 
-    @Dado("^a senha \"([^\"]*)\"$")
+    @Dado("^a senha (.*)")
     public void aSenha(String arg1) throws Throwable {
         driver.findElement(By.xpath("/html/body/div/div/div/div[2]/main/div/div/form/div/div[2]/label/div/div[2]/div/input")).sendKeys(arg1);
     }
+
+//    @Dado("^caso o acesso de erro$")
+//    public void casoOAcessoDeErro() throws Throwable {
+//        String teste;
+//        teste = driver.findElement(By.xpath("/html/body/div/div/div/div[2]/main/div/div/div[1]/span)")).getText();
+//        System.out.println(teste);
+//
+//    }
 
     @Dado("^e entrar$")
     public void eEntrar() throws Throwable {
